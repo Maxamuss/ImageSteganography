@@ -59,7 +59,6 @@ class HiddenImage:
         Due to the meta data, the image must be greater than 60 pixels. Much
         larger if meaningful amounts of data want to be hidden.
         """
-        data = str(data)
         # check data will fit into the image (60 px reserved for meta data)
         data_size = len(data)
         size_available = self.get_character_capacity()
@@ -142,23 +141,13 @@ class HiddenImage:
 
     def retrive_hidden_data(self):
         """
-        If the
+        Retrive the hidden data from the image
         """
-        possible_hidden_data = True if self.has_data_hidden else False
-
-        # if no meta data in the image, ask user if they want to scrape all of
-        # data from the image.
-        if not possible_hidden_data:
-            check = input("The image given may not contain any hidden data. Do you"
-                  + "want to check the image anyway? [y/n]: ")
-            if check != 'y':
-                return None
-
-    def return_colour(self, x, y):
-        return self.raw_pixel_store[x, y]
+        pass
 
 image = HiddenImage('1.jpg')
-image.hide_data("My name is Max Wilkinson.")
+# image.hide_data("My name is Max Wilkinson.")
+image.get_character_capacity()
 
 # print(pixel.to_binary())
 # im = Image.open(
